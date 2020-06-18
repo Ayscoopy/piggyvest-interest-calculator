@@ -1,87 +1,136 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link href="https://fonts.googleapis.com/css?family=Varela+Round|Muli:200,400,800|Poppins|Lato|Playfair+Display" >
-    <link rel="stylesheet" href="index.css">
-    <script src="index.js"></script>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Font Awesome -->
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+<!-- Google Fonts -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+<!-- Bootstrap core CSS -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
+<!-- Material Design Bootstrap -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.0/css/mdb.min.css" rel="stylesheet">
+<!-- index css -->
+<link href="index.css" rel="stylesheet">
+<!-- JQuery -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<!-- Bootstrap tooltips -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+<!-- Bootstrap core JavaScript -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>
+<!-- MDB core JavaScript -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.0/js/mdb.min.js"></script>
     <title>PiggyVest Interest Calculator</title>
 </head>
 <body>
-    <header>
-        <div class="brand-logo">
-            <img src="piggy-png_1_.png" alt="Brand-Logo" height="90px" width="250px" >
-        </div>
-        <nav>
-<li><a href="https://www.piggyvest.com/about">About</a></li>
-<li><a href="https://www.piggyvest.com/stories">Stories</a></li>
-<li><a href="https://www.piggyvest.com/faq">FAQ</a></li>
-<li><a href="https://medium.com/@Piggyvest">Blog</a></li>
-        </nav>
-    </header>
 
-    <h1 style="text-align: center;">Calculate your interest using the rate given by PiggyVest for the services.</h1>
-    <h2 style="text-align: center;">Choose the plan that matches your desire</h2>
-    <div class="box">
+    <div class="mypad">
+    <!-- Default form contact -->
+<form class=" border-light p-5" action="#!">
 
-    <div class="box1">
-        <h3>SafeLock</h3>
-
-        <label> <p>How much are you investing ?</p> <small>(PRINCIPAL FEE)</small> </label>
-
-        <input type="number" id="safelock">
-
-        <label> <p>For how long ?</p> <small>(Duration in months)</small></label>
-        <input type="number" id="sl_dur">
-        <br>
-        <button type="submit" onclick="safelock()"> Calculate </button>
-
-    </div>
-    <div class="box2">
-        <h3>Target Savings</h3>
-
-        <label> <p>How much are you investing ?</p> <small>(PRINCIPAL FEE)</small> </label>
-
-        <input type="number" id="t_savings">
-
-        <label> <p>For how long ? </p> <small>(Duration in months)</small></label>
-        <input type="number" id="ts_dur">
-        <br>
-        <button type="submit" onclick="t_savings()"> Calculate </button>
-
-    </div>
-    <div class="box3">
-        <h3>PiggyBank</h3>
-
-        <label> <p>How much are you investing ?</p> <small>(PRINCIPAL FEE)</small> </label>
-        <input type="number" id="piggybank">
-
-        <label> <p>For how long ? </p> <small>(Duration in months)</small></label>
-        <input type="number" id="pg_dur">
-        <br>
-        <button type="submit" onclick="piggybank()"> Calculate </button>
-        
-
-    </div>
+<div class="text-center ">
+    <span class="h4 mb-4"><img src="pv.png" alt="Brand-Logo" > </span>
+    <p class="tan"style="text-align: center;">Calculate your interest using the rate given by PiggyVest for the services.</p>
 
 </div>
-<div class="result" id="sl_tp">
 
-</div>
-<div class="result" id="return">
+    <!-- Amount -->
+    <label class="label">How much are you investing ?</label>
+    <input type="number" id="amount" class="form-control mb-4" placeholder="PRINCIPAL FEE">
 
-</div>
-<div class="err" id="err">
+    <!-- duration -->
+    <label class="label">For how long ?</label>
+    <input type="number" id="duration" class="form-control mb-4" placeholder="Duration in months">
 
+    <!-- Subject -->
+    <label class="label">Savings Option</label>
+    <select id="opt" class="browser-default custom-select mb-4">
+        <option  value="1" selected>Safelock</option>
+        <option value="2">Target Savings</option>
+        <option value="3">PiggyBank</option>
+    </select>
+
+    <!-- calculate button -->
+    <button class="btn btn-info btn-block" type="submit" onClick="calculate()">calculate</button>
+      <p id="msg1" class="msg"></p>
+      <p id="err" class="err"></p>
+      <p id="msg2" class="msg"></p>
+</form>
+<!-- Default form contact -->
 </div>
+
+
+<footer class="content">
+		<div class="container">
+			<ul class="_right foot-links">
+				<h3>COMPANY</h3>
+				<li>
+					<a href="https://www.piggyvest.com/about">About</a>
+				</li>
+				<!--
+				<li>
+					<a href="https://www.piggyvest.com/careers">Careers</a>
+				</li>
+				-->
+				<li>
+					<a href="https://www.piggyvest.com/faq">FAQs</a>
+				</li>
+				<li>
+					<a href="https://www.piggyvest.com/terms">Terms of Use</a>
+				</li>
+				<li>
+					<a href="https://www.piggyvest.com/privacy">Privacy Policy</a>
+				</li>
+				<li>
+
+                    <span class="icon">
+                     	<a href="https://www.facebook.com/PiggybankNG" target="_blank"><img alt="Facebook" src="https://www.piggyvest.com//images/social-media-icon-FB-80-min.png"></a>
+                    </span>
+
+                    <span class="icon">
+                     	<a href="https://twitter.com/PiggybankNG" target="_blank"><img alt="Twitter" src="https://www.piggyvest.com//images/social-media-icon-TWT-80-min.png"></a>
+                    </span>
+
+                    <span class="icon">
+                     	<a href="https://instagram.com/PiggybankNG" target="_blank"><img alt="Instagram" src="https://www.piggyvest.com//images/social-media-icon-instagram-80-min.png"></a>
+                    </span>
+                    				</li>
+			</ul>
+
+			<ul class="_right foot-links">
+				<h3>Quick Links</h3>
+				<li>
+					<a href="https://www.piggyvest.com/autosave">AutoSave™</a>
+				</li>
+				<li>
+					<a href="https://www.piggyvest.com/link">PiggyLink</a>
+				</li>
+				<li>
+					<a href="https://www.piggyvest.com/quicksave">Quick Save™</a>
+				</li>
+				<li>
+					<a href="https://www.piggyvest.com/safelock">SafeLock™</a>
+				</li>
+				<li>
+					<a href="https://www.piggyvest.com/withdrawals">Withdrawals &amp; Breaking</a>
+				</li>
+				<li>
+					<a href="https://www.piggyvest.com/salarysavingsteps">Salary Management</a>
+				</li>
+			</ul>
+
+			<div class="info">
+				<a href="#"><img src="https://storage.googleapis.com/piggybankservice.appspot.com/statics/piggy-png_1_.png" class="logo" alt=""></a>
+				<p class="_margin-10">
+										PiggyVest <a href="https://medium.com/@PiggybankNG/introducing-piggyvest-the-future-of-savings-and-investments-e82482d3a595" target="_blank">(formerly piggybank.ng)</a> is the largest online savings &amp; investing platform in Nigeria.<br>For over 4 years, our customers have saved and invested billions of Naira that they would normally be tempted to spend.<br>					<br>
+					Office: Tesmot House, 3 Abdulrahman Okene Close, off Ligali Ayorinde Street, Victoria Island, Lagos.				</p>
+				<p><a href="tel:0700 933 933 933">0700 933 933 933 <b>(Mon-Fri from 9am-5pm)</b></a> - <a href="mailto:contact@piggyvest.com">contact@piggyvest.com</a></p>
+				<p class="copy">© 2016 - 2020 PiggyTech Global Limited - RC 1405222</p>
+			</div>
+
+		</div>
+	</footer>
+  <script src="index.js"></script>
 
 </body>
 
-<!-- JS, Popper.js, and jQuery
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
--->
 </html>
