@@ -44,6 +44,7 @@ else if(opt == '3'){
     document.getElementById("msg2").innerHTML = "After "+dur+" months your total money will be N"+tp.toFixed(2)
   }
 }
+  event.preventDefault();
 }
 
 function clear(){
